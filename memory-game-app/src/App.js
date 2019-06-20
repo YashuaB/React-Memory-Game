@@ -1,31 +1,29 @@
-import React, { Component } from "react";
-import KittenCard from "./components/KittenCard";
-import Nav from "./components/Nav";
-import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
-import kittens from "./kitten.json";
+import React, { Component } from "react"
+import KittenCard from "./components/KittenCard"
+import Nav from "./components/Nav"
+import Wrapper from "./components/Wrapper"
+import Title from "./components/Title"
+import kitten from "./kitten.json"
+
 
 
 function randomKitten(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [array[i], array[j]] = [array[j], array[i]]
   }
   return array;
-};
-
+}
 
 class App extends Component {
-  // Set this.state
+  
   state = {
-    kittens,
+    kitten,
     currentScore: 0,
     topScore: 0,
     correctIncorrect: "",
     clicked: [],
   }
-
-
 
   handleClick = id => {
     if (this.state.clicked.indexOf(id) === -1) {
@@ -35,7 +33,7 @@ class App extends Component {
       this.handleReset()
     }
   }
-  
+
   handleIncrement = () => {
     const newScore = this.state.currentScore + 1
     this.setState({
@@ -50,7 +48,7 @@ class App extends Component {
     }
     this.handleShuffle()
   }
-  
+
   handleReset = () => {
     this.setState({
       currentScore: 0,
@@ -60,48 +58,44 @@ class App extends Component {
     })
     this.handleShuffle()
   }
-  
+
   handleShuffle = () => {
-    let shuffledKitten = randomkitten(kittens)
-    this.setState({ kittens: shuffledKitten })
+    let shuffledkitten = randomKitten(kitten)
+    this.setState({ kitten: shuffledkitten })
   }
-  
-    render() {
-      return (
-        <Wrapper>
-          <Nav
-            title="React Clicky Game"
-            score={this.state.currentScore}
-            topScore={this.state.topScore}
-            correctIncorrect={this.state.correctIncorrect}
-          />
-  
-          <Title>
-            Click on an image to earn points, but don't click on any more than once!
-          </Title>
-         
-              {this.state.kittens.map(kitten => (
-               
-                  <KittenCard
-                    key={kitten.id}
-                    handleClick={this.handleClick}
-                    handleIncrement={this.handleIncrement}
-                    handleReset={this.handleReset}
-                    handleShuffle={this.handleShuffle}
-                    id={kitten.id}
-                    image={kitten.image}
-                  />
-                
-              ))}
+
+  render() {
+    return (
+      <Wrapper>
+        <Nav
+          title="React Clicky Game"
+          score={this.state.currentScore}
+          topScore={this.state.topScore}
+          correctIncorrect={this.state.correctIncorrect}
+        />
+
+        <Title>
+          Click on an image to earn points, but don't click on any more than once!
+        </Title>
+        
+            {this.state.kitten.map(kitten => (
+              
+                <KittenCard
+                  key={kitten.id}
+                  handleClick={this.handleClick}
+                  handleIncrement={this.handleIncrement}
+                  handleReset={this.handleReset}
+                  handleShuffle={this.handleShuffle}
+                  id={kitten.id}
+                  image={kitten.image}
+                />
             
-        </Wrapper>
-      )
-    }
+            ))}
+        
+        
+        
+      </Wrapper>
+    )
   }
-
-
-
-
-
-
+}
 export default App
