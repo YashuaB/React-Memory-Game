@@ -4,7 +4,9 @@ import Nav from "./components/Nav"
 import Wrapper from "./components/Wrapper"
 import Title from "./components/Title"
 import kitten from "./kitten.json"
-
+import Row from "./components/Row"
+import Column from "./components/Column"
+import Container from "./components/Container"
 
 
 function randomKitten(array) {
@@ -68,7 +70,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Nav
-          title="React Clicky Game"
+          title="Kitten Click"
           score={this.state.currentScore}
           topScore={this.state.topScore}
           correctIncorrect={this.state.correctIncorrect}
@@ -77,9 +79,12 @@ class App extends Component {
         <Title>
           Click on an image to earn points, but don't click on any more than once!
         </Title>
-        
+
+        <Container>
+          <Row>
+            
             {this.state.kitten.map(kitten => (
-              
+              <Column size="md-3 sm-6">
                 <KittenCard
                   key={kitten.id}
                   handleClick={this.handleClick}
@@ -89,11 +94,11 @@ class App extends Component {
                   id={kitten.id}
                   image={kitten.image}
                 />
-            
+              </Column>
             ))}
-        
-        
-        
+              
+          </Row>
+        </Container>
       </Wrapper>
     )
   }

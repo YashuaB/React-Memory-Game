@@ -5,10 +5,11 @@ React-Memory-Game renders  images to the screen and each image reacts to users c
 ## Demo
 
 Demo of app: [Memory-Game](https://yashuab.github.io/React-Memory-Game/)
+[KittinClick](memory-game-app/public/images/cats/kittenClick.png)
 
 ## Built With
-Node.js
-React
+* Node.js
+* React
 ### Prerequisites
 Things you need to install the software and how to install them
 
