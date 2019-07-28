@@ -1,7 +1,6 @@
 
 # React-Memory-Game
-Is a restaurant app that lets users input the names of burgers they'd like to eat then stores them in a database for later consumption.
-
+React-Memory-Game renders  images to the screen and each image reacts to users click. 
 
 ## Demo
 
@@ -10,7 +9,6 @@ Demo of app: [Memory-Game](https://yashuab.github.io/React-Memory-Game/)
 ## Built With
 Node.js
 React
-
 ### Prerequisites
 Things you need to install the software and how to install them
 
