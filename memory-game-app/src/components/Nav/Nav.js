@@ -5,7 +5,7 @@ const Nav = props => (
   <nav>
     <ul>
       <li className="brand">
-        <a href="/clicky-game/">{props.title}</a>
+        <a href="/kitten-click-game/">{props.title}</a>
       </li>
       <li id="rw" >{props.correctIncorrect}</li>
 
